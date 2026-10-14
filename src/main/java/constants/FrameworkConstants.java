@@ -9,4 +9,5 @@ public class FrameworkConstants {
     // Config file selections
     public static final String DEFAULT_ENV = "qa";
     public static final String ENV_PROPERTY = "env";
+    public static final int CON_TIMEOUT = 3000;
 }

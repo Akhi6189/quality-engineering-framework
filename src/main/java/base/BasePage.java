@@ -5,6 +5,7 @@ import constants.ConfigConstant;
 import driver.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -31,6 +32,11 @@ public class BasePage {
     }
     protected String getElementText(By locator) {
         return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
+    }
+    protected void moveToElement(By locator) {
+        WebElement element = getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
+        Actions actions = new Actions(DriverFactory.getDriver());
+        actions.moveToElement(element).perform();
     }
 
 }
